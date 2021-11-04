@@ -1,0 +1,115 @@
+ #các kiểu dữ liệu kết hợp : tuple, list, set, dict
+# các gói: numpy, pandas, maplotlib, sk-learn
+# tuple: hình thành các giá trị trong dấu (gtri1, giatri2, ...) vd: T = (1,2,3), T[0] = 1
+
+T = (1,2,3)
+print(type(T))
+print(T[1])
+# so lan xuat hien
+print(T.count(2))
+# xem chi so cua 2 la bao nhiu
+print(T.index(2))
+# cong
+T = T + (4,5)
+print(T)
+#################### ko thay đổi đc giá trị trong tuple !!!! T[0] = 100 ?? sai
+# tuple có tên (giống cấu trúc trong ngôn ngữ C)
+# tạo 1 tuple có tên : collections.nametuple("chuoi 1", "chuoi 2")
+#chuoi 1: quy định tên kiểu mới
+#chuoi 2: các từ cách nhau = 1 khoang trống, mỗi từ là 1 trường thuộc tính, trả về kiểu mới
+import collections
+point2D = collections.namedtuple("point2D","x y")
+# a là kiểu point2D, x = 1, y=2
+A = point2D(1,2)
+print(A)
+## tao thong tin sinh vien !!
+
+
+# list: tập các giá trị trong dấu [], list giống với tuple (phép toán,..)
+# list thì thay đổi được giá trị trong danh sách. T = 100 > OK!!!
+L = [4,5,True,"abc"]
+print(type(L))
+print(L)
+L[0] = False
+print(L)
+###########
+L1 = L
+L[0] = 1
+print(L1)
+## phep toan copy chuoi doi voi tuple
+##############
+a = (1,2,3)
+aa = a * 3
+
+#danh sach tong quat:
+#[<bieu thuc> for dieukien] sau for chỉ ra số lượng, hoặc miền giá trị của danh sách
+# vd tạo danh sách cá số nguyên từ 1 -> 100
+L = [i for i in range(1,100)]
+print(L)
+# so chan
+# tao danh sach nhanh !!!
+L = [i for i in range(1,100) if i%2==0]
+print(L)
+# in cac so ngau nhien tu 5 - 10
+import random
+L = [random.randint(5, 10) for i in range(1,20)]
+print(L)
+
+
+
+# set (tap hop): các phần tử trong dấu { }  toán: hợp(|) , giao(&), lấy phần bù(-) và (^)
+A = set("python")
+print(A)
+B = set("thoong")
+print(B)
+# hop
+print(A|B)
+# giao
+print(A&B)
+
+print(A - B)
+print(A^B)
+#  Tập tổng quát giống danh sách tổng quát
+# tạo tap hop so chan tu 5-10
+S = {i for i in range(1,10) if i%2 == 0}
+print(S)
+
+## Tập cố định: frozenset (đóng băng): Các phần tử không đổi được
+S = frozenset({2,4,6,8})
+print(S)
+
+########
+
+# 4. kiểu từ điển (dict) gòm : 2 thành phần {Khoá:giá trị, ....}
+D = {'a':97, 'b':98}
+print(D)
+# truy vấn
+print(D['a'])
+# khi truy cập đến 1 cặp khoá ko có trong từ điển, thì nó sinh lỗi.
+#khi đó cung cấp từ điển ngầm định: nếu truy cập key|value ko có trong dict:
+# thì tự đọng thêm 1 khoá mới vào với giá trị ngầm định
+# name = collections.defaultdict(type)
+D = collections.defaultdict(int)
+print(D)
+D['a'] = 97
+print(D)
+X = D['b']
+print(X)
+print(D)
+# từ điển có thứ tự collections.orderedDict
+#vd:
+mon = {'th':41529687, 't':10268846}
+diem = {''}
+
+
+
+
+
+
+
+
+
+
+
+
+
